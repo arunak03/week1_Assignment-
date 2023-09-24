@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Card</title>
+    <style>
+          nav{
+            background-color: aquamarine;
+        }
+    
+        
+        nav li {
+            display:inline-flex;
+            margin-right: 50px;
+            font-size: 25px;
+            color: blueviolet;
+        }
+        canvas{
+            border:2px solid ;
+            display: block;
+            margin: 100px 500px;
+            position:absolute;     
+        }
+    </style>
+</head>
+<nav>
+    <ul class="list">
+        <li><a href ="Assignment 3.html" >Home</a></li>
+        <li><a href ="Assignment 1.html" target="_blank">Greeting</a></li>
+        <li><a href ="Assignment 2.html" target="_blank">Contact</a></li>
+        <li><a href ="Images.html" target="_blank">Images</a></li>
+    </ul>
+</nav>
+<body>
+    <canvas  width="500" height="500" id="can"></canvas>
+    <canvas  width="500" height="500" id="can2"></canvas>
+    <canvas  width="500" height="500" id="can3"></canvas>
+    <canvas  width="500" height="500" id="can4"></canvas>
+    <canvas  width="500" height="500" id="can5"></canvas>
+    <canvas  width="500" height="500" id="can6"></canvas>
+    <script>
+        var can = document.getElementById("can");
+        var ctx =can.getContext("2d");
+        const lineargradient = ctx.createLinearGradient(0, 0, 500, 500);
+        lineargradient.addColorStop(0, "#1D161E");
+        lineargradient.addColorStop(0.2, "#282B75");
+        lineargradient.addColorStop(0.5, "#2B1D5A");
+        lineargradient.addColorStop(0.7, "purple");
+        lineargradient.addColorStop(1, "#A296CA");
+        ctx.fillStyle = lineargradient;
+        ctx.fillRect(0, 0, 500, 500);
+
+        setInterval(function(){
+            var boxX = Math.round(Math.random()*500);
+            var boxY = Math.round(Math.random()*500);
+            var ra = Math.round(Math.random()*1);
+               
+            ctx.fillStyle="rgb("+192+","+192+","+192+")";
+            ctx.beginPath();
+            ctx.arc(boxX,boxY,ra,0,(Math.PI/180)*360,true);
+            ctx.closePath();
+            ctx.fill();
+            ctx.clearStroke()
+            ctx.stroke();
+        },10);        
+        ctx.font="bold 50px arial";
+        ctx.fillStyle="gold";
+        ctx.fillText("Happy",100,200);
+        ctx.font="bold 50px arial";
+        ctx.fillStyle="silver";
+        ctx.fillText("Diwali",175,250);var boxX=0;
+        
+            var boxY=-15;
+            var boxX=-15;
+            var ctx2 = document.getElementById("can2").getContext("2d");
+            setInterval(function(){
+            ctx2.clearRect(0,0,500,500);
+            ctx2.fillStyle="red";
+            ctx2.fillRect(boxX,10,50,20);
+            boxX +=2;
+            var ctx3 = document.getElementById("can3").getContext("2d");
+            ctx3.clearRect(0,0,500,500);
+            ctx3.fillStyle="green";
+            ctx3.fillRect(450,boxY,20,50);
+            boxY +=2;
+            },10);
+            var ctx4 = document.getElementById("can4").getContext("2d");
+            var ctx5 = document.getElementById("can5").getContext("2d");
+            var ctx5 = document.getElementById("can6").getContext("2d");
+            var img= new Image();
+            img.src ="rocket.png";
+            img.onload = function(){
+                ctx.drawImage(img,120,220,50,50);
+                ctx.translate(0,10);
+            };
+
+            setInterval(function(){
+            ctx4.fillStyle="orange";
+            ctx4.fillRect(455,boxX,5,20);
+            boxX +=1;
+            ctx5.fillStyle="orange";
+            ctx5.fillRect(boxY,15,10,5);
+            boxY +=1;
+            },15);
+
+
+
+              
+    </script>
+    
+</body>
+</html>

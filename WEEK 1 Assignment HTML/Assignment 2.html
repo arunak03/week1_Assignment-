@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration</title>
+    <style>
+          nav{
+            background-color: aquamarine;
+        }
+    
+        
+        nav li {
+            display:inline-flex;
+            margin-right: 50px;
+            font-size: 25px;
+            color: blueviolet;
+        }
+        h2 {
+            display: block;
+            margin: 10px ;
+            text-align: center;
+        }
+        form {
+            border: 2px solid red;
+            margin: 100px 500px;
+            padding-left: 10px;
+        }
+        
+    </style>
+    <script>
+        function changeHandler(source){
+            document.getElementById("out_"+source.type).value=source.value
+        }
+    </script>
+</head>
+<body>
+    
+    <nav>
+        <ul class="list">
+            <li><a href ="Assignment 3.html" >Home</a></li>
+            <li><a href ="Assignment 1.html" target="_blank">Greeting</a></li>
+            <li><a href ="Assignment 2.html" target="_blank">Contact</a></li>
+            <li><a href ="Images.html" target="_blank">Images</a></li>
+        </ul>
+        
+    </nav>
+    <form>
+        <h2>New Employee Registration</h2>
+        <hr>
+        <div>
+        <label for="Fname" >First Name</label>
+        <input required type="text" id="Fname" name="Fname">
+        </div>
+        <br>
+        <div>
+        <label for="Lname" >Last Name</label>
+        <input required type="text" id="Lname" name="Lname">
+        </div>
+        <br>
+        <div>
+        <label for="email" >Email</label>
+        <input required  placeholder="xyz@gmail.com" type="email" id="email" name="email">
+        </div>
+        <br>
+        <div>
+            <label for ="sex">Gender</label>
+            <input type="radio" name="sex" id="F" value="Male" required >Male
+            <input type="radio" name="sex" id="M" value="Female">Female
+            <input type="radio" name="sex" id="O" value="Other">Other
+
+        </div>
+        <br>
+        <div>
+            <label for="age">Age</label>
+            <input required  min="20" max="60"  id="age" name="age" type="number">
+        </div>
+        <br>
+        <div>
+            <label for="Place of birth">Place of Birth:</label>
+            <input  required list="Place-Of-Birth" id="PlaceOfBirth" name="PlaceOfBirth" />
+            <datalist id="Place-Of-Birth">
+            <option value="bangalore"></option>
+            <option value="jaipur"></option>
+            <option value="sambalpur"></option>
+            <option value=" mangalore"></option>
+            <option value="patna"></option>
+            <option value="srinagar"></option>
+            <option value="kanpur"></option>
+            <option value="guwahati"></option>
+            <option value="hassan"></option>
+            <option value="ramnagar"></option>
+            <option value="bidar"></option>
+            <option value="tumkur"></option>
+            </datalist>
+        </div>
+        <br>
+        <div>
+            <label for="resume">Select your resume</label>
+            <input type="file" required id="resume" name="resume" accept=".pdf, .doc, .docx">
+        </div>
+        <br>
+        <div>
+            <label>Select Positions:</label><br>
+            <input type="checkbox" id="developer" name="positions[]" value="developer" >
+            <label for="developer">Developer</label>
+            <br>
+            <input type="checkbox" id="designer" name="positions[]" value="designer">
+            <label for="designer">Designer</label>
+            <br>
+            <input type="checkbox" id="testing_engineer" name="positions[]" value="testing_engineer">
+            <label for="testing_engineer">Testing Engineer</label>
+            <br>
+            <input type="checkbox" id="sales_support" name="positions[]" value="sales_support">
+            <label for="sales_support">Sales Support</label>
+            <br>
+            <input type="checkbox" id="hr" name="positions[]" value="hr">
+            <label for="hr">Human Resource</label><br>
+        </div>
+        <br>
+        <div>
+        <label for="date" >Tentative joining date</label>
+        <input required type="date" id="date" name="date">
+        </div>
+        <br>
+        <div>
+            <button type="submit" value="Submit">Submit</button>
+        </div> 
+        <br>
+    </form>
+    <script>
+        var uage= document.getElementById("age");
+        uage.setCustomValidity("you must enter your age");
+        uage.addEventListener("input",function(){
+            if(uage.value< 20){
+                uage.setCustomValidity("you are too young");
+            }else if(uage.value > 60){
+                uage.setCustomValidity("you are too old ");
+            }else{
+                uage.setCustomValidity("");
+            }  
+        });  
+    </script>   
+</body>
+</html>
